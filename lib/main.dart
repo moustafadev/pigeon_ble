@@ -72,7 +72,9 @@ class _BleHomePageState extends State<BleHomePage> {
   }
 
   void _onEvent(BleEvent event) {
-    print('onEvent: $event');
+    if (event is! DataReceived) {
+      debugPrint('onEvent: $event');
+    }
     if (!mounted) return;
     switch (event) {
       case DeviceFound(:final device):

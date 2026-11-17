@@ -3,7 +3,7 @@ import 'package:pigeon/pigeon.dart';
 @ConfigurePigeon(
   PigeonOptions(
     dartOut: 'lib/core/pigeon/connect_ble/ble_event.g.dart',
-    kotlinOut: 'android/app/src/main/kotlin/com/example/BleDataProcessing/BleEvent.g.kt',
+    kotlinOut: 'android/app/src/main/kotlin/com/example/ble_data_processing/BleEvent.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.example.ble_data_processing'),
     swiftOut: 'ios/Runner/BleEvent.g.swift',
     dartPackageName: 'ble_data_processing',

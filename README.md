@@ -39,7 +39,7 @@ Android BleHostApiImpl          iOS BleHostApiImpl
 Generated output is checked in:
 
 - [`lib/core/pigeon/connect_ble/ble_event.g.dart`](lib/core/pigeon/connect_ble/ble_event.g.dart)
-- [`android/app/src/main/kotlin/com/example/BleDataProcessing/BleEvent.g.kt`](android/app/src/main/kotlin/com/example/BleDataProcessing/BleEvent.g.kt)
+- [`android/app/src/main/kotlin/com/example/ble_data_processing/BleEvent.g.kt`](android/app/src/main/kotlin/com/example/ble_data_processing/BleEvent.g.kt)
 - [`ios/Runner/BleEvent.g.swift`](ios/Runner/BleEvent.g.swift)
 
 Each platform registers the handler in its Flutter entry point: [`MainActivity`](android/app/src/main/kotlin/com/example/ble_data_processing/MainActivity.kt) on Android and [`AppDelegate`](ios/Runner/AppDelegate.swift) on iOS.
@@ -48,9 +48,7 @@ Each platform registers the handler in its Flutter entry point: [`MainActivity`]
 
 These are fakes so the scan screen has something to render. They do not open the Bluetooth radio.
 
-**Android** ([`BleHostApiImpl.kt`](android/app/src/main/kotlin/com/example/ble_data_processing/BleHostApiImpl.kt)) emits one device (`Test`, RSSI −50) on `startScan`, then reports connected or disconnected.
-
-**iOS** ([`BleIosTest.swift`](ios/Runner/BleIosTest.swift)) emits `TEST-0001`, waits half a second in `connecting`, then `connected`, and pushes a kilobyte of random bytes every second. `connect("FAIL")` drops back to `disconnected` and returns `CONNECT_FAILED`. `write` echoes the same bytes as `DataReceived`.
+Both [`BleHostApiImpl.kt`](android/app/src/main/kotlin/com/example/ble_data_processing/BleHostApiImpl.kt) and [`BleIosTest.swift`](ios/Runner/BleIosTest.swift) do the same thing. `startScan` emits `TEST-0001` (`Test`, RSSI −50). `connect` waits half a second in `connecting`, then `connected`, and pushes a kilobyte of random bytes every second. `connect("FAIL")` drops back to `disconnected` and returns `CONNECT_FAILED`. `write` echoes the same bytes as `DataReceived`. `disconnect` stops the timer.
 
 The screen listens for those events. It does not render `DataReceived` yet.
 
