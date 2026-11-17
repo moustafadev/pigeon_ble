@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'BLE devices',
+      title: 'Pigeon BLE',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
@@ -165,7 +165,7 @@ class _BleHomePageState extends State<BleHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Devices'),
+        title: const Text('Pigeon BLE'),
         actions: [
           if (_scanning)
             const Padding(
