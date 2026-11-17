@@ -2,3 +2,7 @@
 # FVM
 .fvm/flutter_sdk
 .fvm/versions
+.dart_tool/
+.fvm/
+.idea/
+build/
